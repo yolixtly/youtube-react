@@ -9,7 +9,7 @@ class SearchBar extends Component {
     super(props);
 
     this.state = {
-      term: 'Value by State'
+      term: ''
     };
 
     this.onInputChange = this.onInputChange.bind(this);
@@ -37,7 +37,6 @@ class SearchBar extends Component {
    * @memberof SearchBar
    */
   render() {
-    // console.log('SearchBar State:', this.state);
     return (
       <div className="container-fluid row">
         <input
