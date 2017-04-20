@@ -11,38 +11,18 @@ class SearchBar extends Component {
     this.state = {
       term: ''
     };
-
-    this.onInputChange = this.onInputChange.bind(this);
   }
-
-
-  /**
-   * onInputChange - Grabs the input Value
-   *
-   * @param  {type} event - describes the value of the input element
-   *
-   * @memberof SearchBar
-   */
-  onInputChange(event){
-    this.setState({
-      term: event.target.value
-    })
+  onInputChange(term){
+    this.setState({term});
+    this.props.onSearchTermChange(term);
   }
-
-  /**
-   * render - description
-   *
-   * @return {ReactElement}  - markup for SearchBar
-   *
-   * @memberof SearchBar
-   */
   render() {
     return (
-      <div className="container-fluid row">
+      <div className="container-fluid row search-bar">
         <input
           value={this.state.term}
           className="col-sm-12"
-          onChange={this.onInputChange}/>
+          onChange={event => this.onInputChange(event.target.value)}/>
         Value of the Input: {this.state.term}
       </div>
     );
